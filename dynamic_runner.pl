@@ -106,6 +106,7 @@ dynamic_runner.pl - run a program every time it's changed
 =head1 SYNOPSIS
 
     $ dynamic_runner.pl -s -c -t content changing_script.pl
+    $ dynamic_runner.pl script.sh -- --arg=val
 
 =head1 DESCRIPTION
 
@@ -146,3 +147,15 @@ Make the status messages colored.
 =head2 -h|--help
 
 Display this help.
+
+=head2 Passing arguments to the monitored program
+
+You can pass arguments to the program being run by adding B<-->
+after dynamic_runner's arguments (including the program filename).
+Any arguments after B<--> will be passed directly to the monitored
+script on each run. For example, to pass --status and --color to
+dynamic_runner and --trigger to script.sh:
+
+    $ dynamic_runner.pl --status --color script.sh -- --trigger
+
+=cut
